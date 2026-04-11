@@ -1,6 +1,7 @@
 <script lang="ts">
 	import '../app.css';
 	import favicon from '$lib/assets/favicon.svg';
+	import { env } from '$env/dynamic/public';
 
 	let { children } = $props();
 </script>
@@ -8,6 +9,9 @@
 <svelte:head>
 	<link rel="icon" href={favicon} />
 	<title>Kleerr Market — demo storefront</title>
+	{#if cstScriptSrc}
+		<script async src={cstScriptSrc}></script>
+	{/if}
 </svelte:head>
 
 <header class="site-header">
